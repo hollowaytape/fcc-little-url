@@ -1,0 +1,23 @@
+{
+  "name": "little-url",
+  "version": "1.0.0",
+  "description": "URL shortener microservice for FCC.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollowaytape/fcc-little-url.git"
+  },
+  "keywords": [
+    "url",
+    "shortener"
+  ],
+  "author": "hollowaytape",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hollowaytape/fcc-little-url/issues"
+  },
+  "homepage": "https://github.com/hollowaytape/fcc-little-url#readme"
+}
