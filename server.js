@@ -1,15 +1,24 @@
+/* 
+	URL Shortener project for Free Code Camp, part of the Back-End Development Certificate.
+*/
+
 var express = require('express');
 var app = express();
 
 var mongo = require('mongodb').MongoClient;
-var mongoUri = process.env.MONGO_URI
+var mongoUri = process.env.MONGO_URI;
+var WEBHOST = process.env.WEBHOST;
+
+var path = require('path');
 
 var shortid = require('shortid');
 var valid_url = require('valid-url');
 
 var port = process.env.PORT || 8080;
-var webhost = "http://localhost:8080/";
 
+app.get('/', function(req, res) {
+	res.sendFile(path.join(__dirname, 'index.html'));
+})
 
 // (*) prevents the additional slashes of a url from confusing Express.
 app.get('/new/:url(*)', function(req, res, next) {
@@ -25,7 +34,7 @@ app.get('/new/:url(*)', function(req, res, next) {
 		// TODO: Overwrite or don't write a new link with the same original_url.
 
 		var newLink = function(db, callback) {
-			var shortUrl = webhost + shortid.generate();
+			var shortUrl = WEBHOST + shortid.generate();
 			var insertLink = { original_url: longUrl, short_url: shortUrl };
 			collection.insert([insertLink]);
 			res.send(insertLink);
@@ -41,7 +50,7 @@ app.get('/new/:url(*)', function(req, res, next) {
 })
 
 app.get('/:url(*)', function(req, res, next) {
-	var shortUrlQuery = webhost + req.params.url;
+	var shortUrlQuery = WEBHOST + req.params.url;
 	console.log(shortUrlQuery);
 
 	if (valid_url.isUri(shortUrlQuery)) {
