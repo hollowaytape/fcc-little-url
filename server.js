@@ -13,12 +13,11 @@ var path = require('path');
 
 var shortid = require('shortid');
 var valid_url = require('valid-url');
+var favicon = require('serve-favicon');
 
 var port = process.env.PORT || 8080;
 
-app.get('/favicon,ico', function(req, res) {
-	res.send(200);
-})
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, 'index.html'));
