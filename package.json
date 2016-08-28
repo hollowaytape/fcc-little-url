@@ -1,10 +1,11 @@
 {
   "name": "little-url",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "URL shortener microservice for FCC.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/hollowaytape/fcc-little-url/issues"
   },
-  "homepage": "https://github.com/hollowaytape/fcc-little-url#readme"
+  "homepage": "https://github.com/hollowaytape/fcc-little-url#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.7",
+    "shortid": "^2.2.6",
+    "valid-url": "^1.0.9",
+  },
+  "devDependencies": {}
 }
