@@ -16,6 +16,10 @@ var valid_url = require('valid-url');
 
 var port = process.env.PORT || 8080;
 
+app.get('/favicon,ico', function(req, res) {
+	res.send(200);
+})
+
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, 'index.html'));
 })
