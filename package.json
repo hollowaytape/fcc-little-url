@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hollowaytape/fcc-little-url#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "express-no-favicons": "0.0.1",
     "mongodb": "^2.2.8",
     "serve-favicon": "^2.3.0",
     "shortid": "^2.2.6",
