@@ -67,11 +67,13 @@ app.get('/:url(*)', function(req, res, next) {
 			}).toArray(function(err, documents) {
 				if (err) return null;
 				else {
-					console.log(documents);
-					console.log(documents[0]);
-					console.log(documents[0].original_url);
-					var redirectUrl = documents[0].original_url;
-					res.redirect(redirectUrl);
+					if (documents) {
+						var redirectUrl = documents[0].original_url;
+						res.redirect(redirectUrl);
+					} else {
+						res.send({'error': 'That shortened url isn\'t in the database.'});
+					}
+
 				}
 			})
 		db.close()
